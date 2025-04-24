@@ -13,11 +13,11 @@ import com.flight.service.PaymentService;
 @RequestMapping("/api/payments")
 public class PaymentController {
 
-    @Autowired
-    private PaymentService paymentService;
+	@Autowired
+	private PaymentService paymentService;
 
-    @PostMapping("/process")
-    public Payment processPayment(@RequestBody Payment payment) {
-        return paymentService.processPayment(payment);
-    }
+	@PostMapping("/process")
+	public Payment processPayment(@RequestBody Payment payment) {
+		return paymentService.processPayment(payment);
+	}
 }

@@ -11,19 +11,17 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class FlightSchedule {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long flightScheduleId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long flightScheduleId;
 
-    @ManyToOne
-    @JoinColumn(name = "flight_id")
-    private Flight flight;
+	@ManyToOne
+	@JoinColumn(name = "flight_id")
+	private Flight flight;
 
-    private LocalDate travelDate;
+	private LocalDate travelDate;
 
-    private int availableSeats; // Track available seats
-
-	
+	private int availableSeats; // Track available seats
 
 	public Long getFlightScheduleId() {
 		return flightScheduleId;
@@ -57,8 +55,5 @@ public class FlightSchedule {
 		this.availableSeats = availableSeats;
 	}
 
-    
-    
-    
-    // Getters and Setters
+	// Getters and Setters
 }

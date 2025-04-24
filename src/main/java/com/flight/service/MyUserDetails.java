@@ -10,11 +10,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.flight.entity.User;
 
-public class MyUserDetails implements UserDetails{
+public class MyUserDetails implements UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private User user;
-	
-	
 
 	public MyUserDetails(User user) {
 		this.user = user;
@@ -34,7 +37,7 @@ public class MyUserDetails implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		
+
 		return user.getEmail();
 	}
 

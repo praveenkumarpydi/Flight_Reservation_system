@@ -10,10 +10,10 @@ import com.flight.entity.User;
 public class AuthService {
 
 	public User getAuthenticedUser() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
-		if(authentication == null || !authentication.isAuthenticated())
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication == null || !authentication.isAuthenticated())
 			return null;
-		MyUserDetails userDetails = (MyUserDetails)authentication.getPrincipal();
+		MyUserDetails userDetails = (MyUserDetails) authentication.getPrincipal();
 		return userDetails.getUser();
 	}
 }

@@ -15,33 +15,30 @@ import com.flight.repo.UserRepository;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
-    
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    
-    
+	@Autowired
+	private UserRepository userRepository;
 
-    public User registerUser(User user) {
-    	
-    	 Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
-    	 if(optionalUser.isPresent()) {
-    		throw new UserNameAlredyExistException("User Mail is alredy exists");
-    	 }
-    		  
-    	user.setPassword(passwordEncoder.encode(user.getPassword()));
-    	user.setRole("USER");
-        return userRepository.save(user);
-    }
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-    public User findByEmail(String email) {
-    	Optional<User> optionalUser = userRepository.findByEmail(email);
-    	if(optionalUser.isPresent())
-    		return optionalUser.get();
-    	else
-    		throw new UserNotFoundException("User Not Found");
-    }
-    
-    
+	public User registerUser(User user) {
+
+		Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
+		if (optionalUser.isPresent()) {
+			throw new UserNameAlredyExistException("User Mail is alredy exists");
+		}
+
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setRole("USER");
+		return userRepository.save(user);
+	}
+
+	public User findByEmail(String email) {
+		Optional<User> optionalUser = userRepository.findByEmail(email);
+		if (optionalUser.isPresent())
+			return optionalUser.get();
+		else
+			throw new UserNotFoundException("User Not Found");
+	}
+
 }

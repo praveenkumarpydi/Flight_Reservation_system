@@ -3,10 +3,12 @@ package com.flight.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.flight.enums.BookingStatus;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,8 +36,8 @@ public class Booking {
 
     
     private double totalPrice;
-    
-    private String bookingStatus;
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
     
     private LocalDateTime createdDate;
     
@@ -51,6 +53,12 @@ public class Booking {
 	}
 	public Long getBookingId() {
 		return bookingId;
+	}
+	public BookingStatus getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(BookingStatus bookingStatus) {
+		this.bookingStatus = bookingStatus;
 	}
 	public void setBookingId(Long bookingId) {
 		this.bookingId = bookingId;
@@ -74,12 +82,7 @@ public class Booking {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public String getBookingStatus() {
-		return bookingStatus;
-	}
-	public void setBookingStatus(String bookingStatus) {
-		this.bookingStatus = bookingStatus;
-	}
+	
 	public LocalDateTime getCreatedDate() {
 		return createdDate;
 	}

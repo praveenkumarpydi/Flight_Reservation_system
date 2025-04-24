@@ -12,11 +12,9 @@ import com.flight.projections.BookingSummaryProjection;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-	
 	List<Booking> findAllByUser(User user);
-	
-	 @Query("SELECT b.bookingId AS bookingId, b.bookingStatus AS bookingStatus, b.totalPrice AS totalPrice FROM Booking b WHERE b.user.userId = :userId")
-	 List<BookingSummaryProjection> findBookingSummariesByUserId(@Param("userId") Long userId);
 
-	
+	@Query("SELECT b.bookingId AS bookingId, b.bookingStatus AS bookingStatus, b.totalPrice AS totalPrice FROM Booking b WHERE b.user.userId = :userId")
+	List<BookingSummaryProjection> findBookingSummariesByUserId(@Param("userId") Long userId);
+
 }

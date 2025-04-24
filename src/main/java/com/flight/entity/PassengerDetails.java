@@ -1,6 +1,5 @@
 package com.flight.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -15,29 +14,28 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class PassengerDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "passenger_details_id")
-    private Long passengerDetailsId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "passenger_details_id")
+	private Long passengerDetailsId;
 
-    @Column(nullable = false)
-    private String firstName;
+	@Column(nullable = false)
+	private String firstName;
 
-    @Column(nullable = false)
-    private String lastName;
+	@Column(nullable = false)
+	private String lastName;
 
-    @Column(nullable = false)
-    private int age;
+	@Column(nullable = false)
+	private int age;
 
-    @Column(nullable = false)
-    private String gender;
-    
-    @ManyToOne 
-    @JoinColumn(name = "booking_id", nullable = false)
-    @JsonIgnore
-    private Booking booking;
+	@Column(nullable = false)
+	private String gender;
 
-    
+	@ManyToOne
+	@JoinColumn(name = "booking_id", nullable = false)
+	@JsonIgnore
+	private Booking booking;
+
 	public Booking getBooking() {
 		return booking;
 	}
@@ -70,8 +68,6 @@ public class PassengerDetails {
 		this.lastName = lastName;
 	}
 
-
-
 	public int getAge() {
 		return age;
 	}
@@ -79,8 +75,6 @@ public class PassengerDetails {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-
 
 	public String getGender() {
 		return gender;
@@ -91,4 +85,3 @@ public class PassengerDetails {
 	}
 
 }
-

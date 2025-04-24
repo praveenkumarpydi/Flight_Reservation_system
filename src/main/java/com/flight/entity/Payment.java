@@ -10,48 +10,59 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long paymentId;
 
-    @ManyToOne
-    private Booking booking;
+	@ManyToOne
+	private Booking booking;
 
-    private LocalDateTime paymentDate;
-    private double paymentAmount;
-    private String paymentStatus;
+	private LocalDateTime paymentDate;
+
+	private double paymentAmount;
+
+	private String paymentStatus;
+
 	public Long getPaymentId() {
 		return paymentId;
 	}
+
 	public void setPaymentId(Long paymentId) {
 		this.paymentId = paymentId;
 	}
+
 	public Booking getBooking() {
 		return booking;
 	}
+
 	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
+
 	public LocalDateTime getPaymentDate() {
 		return paymentDate;
 	}
+
 	public void setPaymentDate(LocalDateTime paymentDate) {
 		this.paymentDate = paymentDate;
 	}
+
 	public double getPaymentAmount() {
 		return paymentAmount;
 	}
+
 	public void setPaymentAmount(double paymentAmount) {
 		this.paymentAmount = paymentAmount;
 	}
+
 	public String getPaymentStatus() {
 		return paymentStatus;
 	}
+
 	public void setPaymentStatus(String paymentStatus) {
 		this.paymentStatus = paymentStatus;
 	}
 
-    // Getters and Setters
-    
-    
+	// Getters and Setters
+
 }
